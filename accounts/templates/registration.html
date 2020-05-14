@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load bootstrap_tags %}
+
+{% block content %}
+
+    <section class="page-section bg-primary" id="about">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <h2 class="text-white mt-0">Register</h2>
+                        <hr class="divider light my-4" />
+                            <form method="POST">
+                                <div class="form-group">
+                                 {% csrf_token %}
+                                {{ registration_form | as_bootstrap }}
+                                <button type="submit" class="btn btn-light btn-xl js-scroll-trigger" >Register</button>
+                                </div>
+                            </form>
+                        <p class="text-white-50 mb-4">If you already have an account, you can <a href="{% url 'login' %}">sign in </a></p>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+
+{% endblock %}
